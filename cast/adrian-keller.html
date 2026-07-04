@@ -55,16 +55,17 @@ nav a:hover{background:rgba(255,255,255,0.07);color:var(--text);}
 
 /* Layout */
 .main{padding:18px 0 74px 0;}
-.layout{display:grid;grid-template-columns: 0.9fr 1.1fr;gap:18px;align-items:start;}
+.layout{
+  display:grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap:18px;
+  align-items:stretch;
+}
 
-/* Portrait placeholder */
+/* Portrait */
 .portrait{
-  border-radius:18px;border:1px solid rgba(255,255,255,0.12);
-  background:
-    radial-gradient(520px 360px at 25% 18%, rgba(134,182,214,0.22), transparent 60%),
-    radial-gradient(520px 360px at 80% 30%, rgba(203,181,124,0.18), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,0.07), rgba(0,0,0,0.10));
-  height:520px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.12);
   box-shadow:0 20px 50px rgba(0,0,0,0.35);
   position:relative;
   overflow:hidden;
@@ -109,18 +110,6 @@ nav a:hover{background:rgba(255,255,255,0.07);color:var(--text);}
 }
 .fact .k{color:rgba(236,229,214,0.65);letter-spacing:0.2px;}
 .fact .v{color:rgba(236,229,214,0.90);text-align:right;}
-
-/* Links */
-.links{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
-.links a{
-  color:var(--muted);
-  text-decoration:none;
-  border-left:2px solid rgba(203,181,124,0.60);
-  padding-left:10px;
-  font-size:14px;
-  letter-spacing:0.4px;
-}
-.links a:hover{color:var(--text);border-left-color:rgba(203,181,124,0.95);}
 
 /* Episodes */
 .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px;}
@@ -169,75 +158,104 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
     </div>
     <div class="h1">Adrian Keller</div>
     <div class="sub">
-      Actor ficticio (IA). Rol en producción: narrador / presencia del “yo” de la serie.
+      Autor, productor, narrador y actor de la serie.
     </div>
   </div>
 </header>
 
 <main class="main">
   <div class="container">
+
+    <!-- ROW 1: Foto + Datos -->
     <div class="layout">
 
       <div class="portrait">
+        <img src="fotos-adrian/adrian-01.jpg"
+     alt="Adrian Keller"
+     style="width:100%;height:100%;object-fit:cover;display:block;">
         <div class="badge">Narrador</div>
       </div>
 
-      <div>
-
-        <section class="panel">
-          <h2>Ficha de producción</h2>
-          <div class="facts">
-            <div class="fact"><div class="k">Tipo</div><div class="v">Actor ficticio (IA)</div></div>
-            <div class="fact"><div class="k">Rol</div><div class="v">Narrador / Voz</div></div>
-            <div class="fact"><div class="k">Universo</div><div class="v">SomniaScriptum</div></div>
-            <div class="fact"><div class="k">Primera aparición</div><div class="v">T1 · E00</div></div>
-          </div>
-        </section>
-
-        <section class="panel" style="margin-top:18px;">
-          <h2>Biografía</h2>
-          <p>
-            Placeholder. Acá va la bio “de casting”: sobria, creíble, con dos líneas de estética (timbre, presencia, registro).
-            Nada de personaje todavía: esto es producción.
-          </p>
-          <p>
-            Nota editorial: más adelante podés agregar una sección “Personaje” como pestaña o bloque aparte, sin mezclarlo acá.
-          </p>
-        </section>
-
-        <section class="panel" style="margin-top:18px;">
-          <h2>Enlaces</h2>
-          <div class="links">
-            <a href="../entrevistas/">Entrevistas (ver sección)</a>
-            <a href="../detras-de-camara/">Detrás de cámara (ver sección)</a>
-            <a href="#">Galería (placeholder)</a>
-          </div>
-        </section>
-
-        <section class="panel" style="margin-top:18px;">
-          <h2>Episodios</h2>
-          <div class="list">
-            <div class="ep">
-              <a href="../temporada-1/e00-arbol-negro.html">
-                <div class="k">E00 · Prólogo</div>
-                <div class="t">El Árbol Negro</div>
-                <div class="d">Origen de la sustancia onírica. Apertura simbólica.</div>
-              </a>
-            </div>
-
-            <div class="ep">
-              <a href="../temporada-1/e01-onyria.html">
-                <div class="k">E01 · Episodio</div>
-                <div class="t">Onyria</div>
-                <div class="d">Primer sueño lúcido exitoso. Inicio del mundo compartido.</div>
-              </a>
-            </div>
-          </div>
-        </section>
-
-      </div>
+      <section class="panel">
+        <h2>Datos biográficos</h2>
+        <div class="facts">
+          <div class="fact"><div class="k">Nacimiento</div><div class="v">12 de septiembre de 1980</div></div>
+          <div class="fact"><div class="k">Edad</div><div class="v">45 años</div></div>
+          <div class="fact"><div class="k">Lugar de nacimiento</div><div class="v">Rijeka, Croacia</div></div>
+          <div class="fact"><div class="k">Residencia</div><div class="v">Montevideo, Uruguay</div></div>
+          <div class="fact"><div class="k">Profesión</div><div class="v">Bibliotecario</div></div>
+          <div class="fact"><div class="k">Actividad audiovisual</div><div class="v">Desde el 2025</div></div>
+          <div class="fact"><div class="k">Productora</div><div class="v">Arcarium</div></div>
+        </div>
+      </section>
 
     </div>
+
+    <!-- ROW 2: Biografía full width -->
+    <section class="panel" style="margin-top:18px;">
+      <h2>Biografía</h2>
+
+      <p>
+        Adrian Keller (Rijeka, 1980) es un bibliotecario uruguayo de origen croata, radicado en Montevideo desde 1986.
+        Llegó al país junto a su familia a los seis años y desarrolló en Uruguay la totalidad de su formación académica
+        y profesional.
+      </p>
+
+      <p>
+        Durante más de dos décadas trabajó en el ámbito bibliotecario, manteniendo una vida pública discreta
+        y sin antecedentes en el campo artístico, literario o cinematográfico.
+        No existen registros de participación previa en teatro, producción audiovisual ni publicaciones formales
+        antes del año 2025.
+      </p>
+
+      <p>
+        Según su propio testimonio, una experiencia vinculada al denominado “árbol negro”
+        marcó un punto de inflexión en su trayectoria personal.
+        A partir de ese episodio comenzó a documentar lo que describe como exploraciones sistemáticas
+        del sueño lúcido.
+      </p>
+
+      <p>
+        De esa documentación surgió la serie audiovisual <em>SomniaScriptum</em>,
+        proyecto que concibió, escribió, produjo y narró sin formación técnica previa en cine.
+      </p>
+
+      <p>
+        Keller es además fundador de <strong>Arcarium</strong>,
+        productora independiente que trabaja exclusivamente con actores aficionados
+        sin experiencia profesional previa.
+        La iniciativa busca preservar la espontaneidad interpretativa y evitar la estandarización
+        de la actuación académica.
+      </p>
+
+      <p>
+        La naturaleza exacta de las experiencias que dieron origen a la serie
+        no ha sido esclarecida públicamente.
+      </p>
+    </section>
+
+    <!-- ROW 3: Episodios full width -->
+    <section class="panel" style="margin-top:18px;">
+      <h2>Episodios</h2>
+      <div class="list">
+        <div class="ep">
+          <a href="../temporada-1/e00-arbol-negro.html">
+            <div class="k">E00 · Prólogo</div>
+            <div class="t">El Árbol Negro</div>
+            <div class="d">Origen de la sustancia onírica. Apertura simbólica.</div>
+          </a>
+        </div>
+
+        <div class="ep">
+          <a href="../temporada-1/e01-onyria.html">
+            <div class="k">E01 · Episodio</div>
+            <div class="t">Onyria</div>
+            <div class="d">Primer sueño lúcido exitoso. Inicio del mundo compartido.</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </div>
 </main>
 
