@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SomniaScriptum</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  /* AZUL NOCHE: profundo pero respirable */
+  --bg0:#0b1422;   /* fondo final */
+  --bg1:#0f1d31;   /* fondo base */
+  --bg2:#132642;   /* panel/gradiente */
+
+  --panel:rgba(255,255,255,0.075);
+  --panel2:rgba(255,255,255,0.11);
+  --line:rgba(255,255,255,0.12);
+
+  /* Texto: marfil suave */
+  --text:#ece5d6;
+  --muted:rgba(236,229,214,0.80);
+  --muted2:rgba(236,229,214,0.62);
+
+  /* Acentos */
+  --accent:#cbb57c;   /* dorado apagado */
+  --accent2:#86b6d6;  /* azul suave */
+}
+
+body{
+  color:var(--text);
+  background:
+    radial-gradient(900px 520px at 18% 12%, rgba(134,182,214,0.18), transparent 60%),
+    radial-gradient(900px 520px at 82% 18%, rgba(203,181,124,0.14), transparent 60%),
+    radial-gradient(1200px 700px at 50% 115%, rgba(255,255,255,0.08), transparent 62%),
+    linear-gradient(to bottom, var(--bg1), var(--bg0));
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.container{width:min(1140px, 92vw); margin:0 auto;}
+
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(15,29,49,0.70);
+  border-bottom:1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(10px) saturate(120%);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 0;
+  gap:18px;
+}
+.brand{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  white-space:nowrap;
+}
+.brand .logo{
+  font-family:"EB Garamond", serif;
+  font-size:22px;
+  letter-spacing:2px;
+  font-weight:700;
+  text-transform:uppercase;
+}
+.brand .tag{
+  font-size:12px;
+  letter-spacing:1.4px;
+  color:var(--muted2);
+  text-transform:uppercase;
+}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:26px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+nav a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  padding:8px 10px;
+  border-radius:10px;
+  transition:background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+nav a:hover{
+  background:rgba(255,255,255,0.07);
+  color:var(--text);
+}
+
+/* HERO */
+.hero{padding:70px 0 44px 0;}
+
+.hero-wrap{
+  position:relative;
+  border:1px solid rgba(255,255,255,0.12);
+  background:
+    radial-gradient(760px 460px at 10% 12%, rgba(134,182,214,0.22), transparent 58%),
+    radial-gradient(760px 460px at 90% 18%, rgba(203,181,124,0.17), transparent 58%),
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow: 0 26px 70px rgba(0,0,0,0.45);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap:26px;
+  padding:42px;
+  align-items:start;
+}
+
+.hero h1{
+  font-family:"EB Garamond", serif;
+  font-size:64px;
+  letter-spacing:2px;
+  line-height:0.95;
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+.kicker{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:999px;
+  background:rgba(0,0,0,0.14);
+  font-size:12px;
+  letter-spacing:1px;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+
+.dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 18px rgba(203,181,124,0.45);
+}
+
+.tagline{
+  font-size:18px;
+  line-height:1.55;
+  color:var(--muted);
+  max-width:62ch;
+  margin-bottom:18px;
+}
+
+.meta{
+  font-size:14px;
+  line-height:1.6;
+  color:var(--muted2);
+  max-width:72ch;
+  margin-bottom:22px;
+}
+
+.cta{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.18);
+  text-decoration:none;
+  color:var(--text);
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  background:rgba(255,255,255,0.075);
+  transition:transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,0.10);
+  border-color:rgba(255,255,255,0.26);
+}
+.btn.primary{
+  background:rgba(203,181,124,0.22);
+  border-color:rgba(203,181,124,0.45);
+}
+.btn.primary:hover{
+  background:rgba(203,181,124,0.30);
+  border-color:rgba(203,181,124,0.62);
+}
+
+/* panel lateral */
+.side{display:flex;flex-direction:column;gap:14px;}
+
+.panel{
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.06);
+  padding:16px 16px 14px 16px;
+}
+
+.panel h2{
+  font-size:12px;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+.panel p{
+  font-size:14px;
+  line-height:1.55;
+  color:var(--muted2);
+}
+
+.quick{
+  margin-top:12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.quick a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:13px;
+  letter-spacing:0.6px;
+  border-left:2px solid rgba(203,181,124,0.60);
+  padding-left:10px;
+  transition:color 0.2s ease, border 0.2s ease, transform 0.2s ease;
+}
+.quick a:hover{
+  color:var(--text);
+  border-left-color:rgba(203,181,124,0.95);
+  transform:translateX(2px);
+}
+
+/* Sección grid */
+.section{padding:44px 0 74px 0;}
+
+.section-title{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:18px;
+}
+.section-title h3{
+  font-family:"EB Garamond", serif;
+  font-size:34px;
+  letter-spacing:0.6px;
+}
+.section-title .hint{
+  font-size:13px;
+  color:var(--muted2);
+  letter-spacing:0.5px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:18px;
+}
+
+.card{
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.06);
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,0.35);
+  transition:transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+}
+.card:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,0.085);
+  border-color:rgba(255,255,255,0.18);
+}
+
+.thumb{
+  height:160px;
+  background:
+    radial-gradient(360px 240px at 20% 20%, rgba(134,182,214,0.26), transparent 60%),
+    radial-gradient(360px 240px at 80% 30%, rgba(203,181,124,0.20), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.07), rgba(0,0,0,0.08));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(236,229,214,0.70);
+  font-size:12px;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+}
+
+.card-body{padding:16px 16px 18px 16px;}
+
+.card h4{
+  font-family:"EB Garamond", serif;
+  font-size:22px;
+  margin-bottom:8px;
+}
+.card p{
+  font-size:14px;
+  line-height:1.55;
+  color:var(--muted2);
+}
+
+/* Hacer clickeables las cards sin cambiar el look */
+.card a{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+/* Footer */
+footer{
+  border-top:1px solid rgba(255,255,255,0.12);
+  padding:26px 0;
+  text-align:center;
+  font-size:13px;
+  color:rgba(236,229,214,0.62);
+}
+
+/* Responsive */
+@media (max-width: 950px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:52px;}
+  nav ul{gap:10px;}
+  nav a{padding:8px 8px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="logo">SomniaScriptum</div>
+      <div class="tag">Temporada 1</div>
+    </div>
+    <ul>
+      <li><a href="./temporada-1/index.html">Episodios</a></li>
+      <li><a href="./cast/index.html">Cast</a></li>
+      <li><a href="./entrevistas/index.html">Entrevistas</a></li>
+      <li><a href="./detras-de-camara/index.html">Detrás de cámara</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-wrap">
+      <div class="hero-grid">
+
+        <div>
+          <div class="kicker">
+            <span class="pill"><span class="dot"></span> Serie · Sueños lúcidos</span>
+            <span class="pill">Narración en primera persona</span>
+            <span class="pill">Cast ficticio (IA)</span>
+          </div>
+
+          <h1>SomniaScriptum</h1>
+
+          <div class="tagline">
+            Experiencias ficticias de sueños lúcidos contadas como una serie: episodios, perfiles, entrevistas y detrás de cámara.
+          </div>
+
+          <div class="meta">
+            Este sitio es el hub: entrás por los episodios o por el cast.  
+            Ahora los enlaces ya están conectados.
+          </div>
+
+          <div class="cta">
+            <a class="btn primary" href="./temporada-1/index.html">Ver Episodios</a>
+            <a class="btn" href="./cast/index.html">Cast & Perfiles</a>
+            <a class="btn" href="./temporada-1/index.html">Mapa del hub</a>
+          </div>
+        </div>
+
+        <aside class="side">
+          <div class="panel">
+            <h2>Acceso rápido</h2>
+            <p>
+              Entrá directo al catálogo de episodios o explorá perfiles del cast con enlaces a entrevistas y material complementario.
+            </p>
+            <div class="quick">
+              <a href="./temporada-1/index.html">Temporada 1 · Índice</a>
+              <a href="./cast/index.html">Cast · Perfiles</a>
+              <a href="./entrevistas/index.html">Entrevistas</a>
+              <a href="./detras-de-camara/index.html">Detrás de cámara</a>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Lectura cómoda</h2>
+            <p>
+              Esto es “azul noche”: profundo, frío y elegante, sin negro puro ni blanco puro.
+              En páginas de lectura podemos aclarar aún más el panel del texto.
+            </p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <div class="section-title">
+      <h3>Episodios destacados</h3>
+      <div class="hint">Después: miniaturas reales y links a cada ficha</div>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <a href="./temporada-1/e00-arbol-negro.html">
+          <div class="thumb">E00 · Prólogo</div>
+          <div class="card-body">
+            <h4>El Árbol Negro</h4>
+            <p>El origen de la sustancia onírica. La primera grieta.</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="./temporada-1/index.html">
+          <div class="thumb">E01 · Episodio</div>
+          <div class="card-body">
+            <h4>Onyria</h4>
+            <p>El primer sueño lúcido exitoso y el comienzo del mundo compartido.</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="./temporada-1/index.html">
+          <div class="thumb">E02 · Episodio</div>
+          <div class="card-body">
+            <h4>La esencia de la felicidad</h4>
+            <p>Una exploración íntima: lo que se encuentra y no se puede “explicar”.</p>
+          </div>
+        </a>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 SomniaScriptum — Todos los derechos reservados
+</footer>
+
+</body>
+</html>
