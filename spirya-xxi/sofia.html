@@ -194,7 +194,7 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
           <div class="fact"><div class="k">Serie</div><div class="v">Spirya XXI</div></div>
           <div class="fact"><div class="k">Rol</div><div class="v">Protagonista</div></div>
           <div class="fact"><div class="k">Interpretada por</div><div class="v">Annika van der Veen</div></div>
-          <div class="fact"><div class="k">Edad de la intérprete</div><div class="v">26 años (al momento de la entrevista)</div></div>
+          <div class="fact"><div class="k">Edad de la intérprete</div><div class="v" id="edad" data-nacimiento="2000-03-14">26 años</div></div>
         </div>
       </section>
 
@@ -276,6 +276,18 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
 <footer>
   © 2026 SomniaScriptum — Spirya XXI
 </footer>
+
+<script>
+// Edad calculada a partir de la fecha de nacimiento
+(() => {
+  const el = document.getElementById('edad');
+  const [y, m, d] = el.dataset.nacimiento.split('-').map(Number);
+  const hoy = new Date();
+  let edad = hoy.getFullYear() - y;
+  if (hoy.getMonth() + 1 < m || (hoy.getMonth() + 1 === m && hoy.getDate() < d)) edad--;
+  el.textContent = edad + ' años';
+})();
+</script>
 
 </body>
 </html>
