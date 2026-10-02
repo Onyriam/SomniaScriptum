@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SomniaScriptum — Helen</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg0:#0b1422; --bg1:#0f1d31;
+  --text:#ece5d6; --muted:rgba(236,229,214,0.80); --muted2:rgba(236,229,214,0.62);
+  --panel:rgba(255,255,255,0.08); --line:rgba(255,255,255,0.12);
+  --accent:#cbb57c;
+}
+body{
+  font-family:Inter, system-ui, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 520px at 18% 12%, rgba(134,182,214,0.18), transparent 60%),
+    radial-gradient(900px 520px at 82% 18%, rgba(203,181,124,0.14), transparent 60%),
+    radial-gradient(1200px 700px at 50% 115%, rgba(255,255,255,0.08), transparent 62%),
+    linear-gradient(to bottom, var(--bg1), var(--bg0));
+}
+.container{width:min(1100px,92vw);margin:0 auto;}
+
+/* NAV */
+nav{
+  position:sticky; top:0; z-index:10;
+  background:rgba(15,29,49,0.70);
+  border-bottom:1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(10px) saturate(120%);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:18px;}
+.brand .logo{font-family:"EB Garamond", serif;font-size:22px;letter-spacing:2px;font-weight:700;text-transform:uppercase;}
+nav ul{list-style:none;display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+nav a{
+  text-decoration:none;color:var(--muted);
+  font-size:13px;letter-spacing:1px;text-transform:uppercase;
+  padding:8px 10px;border-radius:10px;transition:background .2s,color .2s;
+}
+nav a:hover{background:rgba(255,255,255,0.07);color:var(--text);}
+
+/* HEADER */
+.header{padding:56px 0 18px 0;}
+.h1{font-family:"EB Garamond", serif;font-size:52px;letter-spacing:1px;margin-bottom:8px;}
+
+/* Layout */
+.main{padding:18px 0 74px 0;}
+.layout{
+  display:grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap:18px;
+  align-items:stretch;
+}
+
+/* Portrait */
+.portrait{
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  position:relative;
+  overflow:hidden;
+}
+.badge{
+  position:absolute;left:14px;bottom:14px;
+  font-size:12px;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(236,229,214,0.75);
+  padding:7px 10px;border-radius:999px;
+  background:rgba(0,0,0,0.16);
+  border:1px solid rgba(255,255,255,0.14);
+}
+
+/* Panels */
+.panel{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.28);
+}
+.panel h2{
+  font-size:12px;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;
+}
+.panel p{font-size:15px;line-height:1.7;color:var(--muted2);margin-bottom:14px;}
+
+/* Fact table */
+.facts{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:10px;
+  margin-top:6px;
+}
+.fact{
+  display:flex;justify-content:space-between;gap:14px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.05);
+  font-size:14px;
+}
+.fact .k{color:rgba(236,229,214,0.65);letter-spacing:0.2px;}
+.fact .v{color:rgba(236,229,214,0.90);text-align:right;}
+
+/* Episodes */
+.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px;}
+.ep{
+  border-radius:16px;border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.06);
+  padding:14px;
+  transition:transform .2s, background .2s, border .2s;
+}
+.ep:hover{transform:translateY(-3px);background:rgba(255,255,255,0.085);border-color:rgba(255,255,255,0.18);}
+.ep a{color:inherit;text-decoration:none;display:block;}
+.ep .k{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:rgba(236,229,214,0.70);margin-bottom:6px;}
+.ep .t{font-family:"EB Garamond", serif;font-size:20px;margin-bottom:6px;}
+.ep .d{font-size:13px;color:var(--muted2);line-height:1.5;}
+
+/* Footer */
+footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:center;font-size:13px;color:rgba(236,229,214,0.62);}
+
+@media (max-width: 980px){
+  .layout{grid-template-columns:1fr;}
+  .portrait{height:420px;}
+  .h1{font-size:44px;}
+}
+
+.breadcrumb{font-size:13px;color:var(--muted2);letter-spacing:0.4px;margin-bottom:10px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(255,255,255,0.25);}
+.breadcrumb a:hover{color:var(--text);}
+.brand .tag{font-size:12px;letter-spacing:1.4px;color:var(--muted2);text-transform:uppercase;margin-left:10px;}
+.brand{display:flex;align-items:baseline;}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="brand"><div class="logo">SomniaScriptum</div><div class="tag">Spirya XXI</div></div>
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../series/">Series</a></li>
+      <li><a href="../entrevistas/">Entrevistas</a></li>
+      <li><a href="../detras-de-camara/">Detrás de cámara</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Inicio</a> / <a href="../series/">Series</a> / <a href="./">Spirya XXI</a> / Helen
+    </div>
+    <div class="h1">Helen</div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="container">
+
+    <!-- ROW 1: Foto + Datos -->
+    <div class="layout">
+
+      <div class="portrait">
+        <img src="fotos/helen-01.jpg"
+     alt="Helen"
+     style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+        <div class="badge">Reparto</div>
+      </div>
+
+      <section class="panel">
+        <h2>Ficha del personaje</h2>
+        <div class="facts">
+          <div class="fact"><div class="k">Serie</div><div class="v">Spirya XXI</div></div>
+          <div class="fact"><div class="k">Rol</div><div class="v">Reparto</div></div>
+          <div class="fact"><div class="k">Interpretada por</div><div class="v">Lucía Ferreyra (Argentina)</div></div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ROW 2: Personaje -->
+    <section class="panel" style="margin-top:18px;">
+      <h2>El personaje</h2>
+
+      <p>
+        Helen es uno de los personajes de <em>Spirya XXI</em>.
+        Su lugar en la historia se descubre episodio a episodio.
+      </p>
+    </section>
+
+    <!-- ROW 3: Serie -->
+    <section class="panel" style="margin-top:18px;">
+      <h2>Episodios</h2>
+      <div class="list">
+        <div class="ep">
+          <a href="./">
+            <div class="k">Spirya XXI · Próximamente</div>
+            <div class="t">Spirya XXI</div>
+            <div class="d">Una joven ingresa a una sociedad que ayuda sin dejar rastro.</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 SomniaScriptum — Spirya XXI
+</footer>
+
+</body>
+</html>
