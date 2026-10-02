@@ -314,6 +314,73 @@ footer{
   line-height:1.65;
   color:var(--muted2);
 }
+
+/* Portada de la serie: para poner la imagen, agregar style="--cover-img:url('portada.jpg')" al div .cover */
+.cover{
+  position:relative;
+  min-height:400px;
+  margin-top:6px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 26px 70px rgba(0,0,0,0.45);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:38px;
+  background:
+    linear-gradient(to top, rgba(11,20,34,0.96) 0%, rgba(11,20,34,0.60) 38%, rgba(11,20,34,0.05) 78%),
+    var(--cover-img,
+      radial-gradient(700px 420px at 22% 18%, rgba(134,182,214,0.30), transparent 60%),
+      radial-gradient(700px 420px at 82% 26%, rgba(203,181,124,0.22), transparent 60%),
+      linear-gradient(180deg, #1a2f4d, #0f1d31));
+  background-size:cover;
+  background-position:center;
+}
+.cover-kicker{
+  font-size:12px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+.cover .h1{font-size:68px;line-height:1;margin-bottom:12px;}
+.cover .sub{max-width:62ch;}
+
+/* Reparto */
+.sec-title{
+  font-family:"EB Garamond", serif;
+  font-size:34px;
+  letter-spacing:0.6px;
+  margin:54px 0 18px 0;
+}
+.cast-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(190px, 1fr));
+  gap:18px;
+}
+.actor .photo{
+  height:230px;
+  background-size:cover;
+  background-position:center 25%;
+  background-repeat:no-repeat;
+}
+.actor .name{
+  font-family:"EB Garamond", serif;
+  font-size:22px;
+  margin-bottom:4px;
+}
+.actor .role{
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:rgba(236,229,214,0.65);
+}
+
+@media (max-width: 950px){
+  .cover{min-height:320px;padding:24px;}
+  .cover .h1{font-size:46px;}
+}
 </style>
 </head>
 
@@ -340,9 +407,12 @@ footer{
     <div class="breadcrumb">
       <a href="../index.html">Inicio</a> / <a href="../series/">Series</a> / Spirya XXI
     </div>
-    <div class="h1">Spirya XXI</div>
-    <div class="sub">
-      Una joven ingresa a una sociedad que ayuda sin dejar rastro.
+    <div class="cover">
+      <div class="cover-kicker">Serie · Próximamente</div>
+      <div class="h1">Spirya XXI</div>
+      <div class="sub">
+        Una joven ingresa a una sociedad que ayuda sin dejar rastro.
+      </div>
     </div>
 
     <div class="tools">
