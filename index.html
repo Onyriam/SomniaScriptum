@@ -326,6 +326,23 @@ nav a:hover{
   color:var(--muted2);
 }
 
+.series{grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));}
+.card .go{
+  display:inline-block;
+  margin-top:14px;
+  padding:9px 14px;
+  border-radius:12px;
+  border:1px solid rgba(203,181,124,0.45);
+  background:rgba(203,181,124,0.18);
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--text);
+}
+.card:hover .go{background:rgba(203,181,124,0.28);}
+a.hint{text-decoration:none;}
+a.hint:hover{color:var(--text);}
+
 /* Hacer clickeables las cards sin cambiar el look */
 .card a{
   display:block;
@@ -358,10 +375,9 @@ footer{
   <div class="container nav-inner">
     <div class="brand">
       <div class="logo">SomniaScriptum</div>
-      <div class="tag">Temporada 1</div>
     </div>
     <ul>
-      <li><a href="./temporada-1/index.html">Episodios</a></li>
+      <li><a href="./series/index.html">Series</a></li>
       <li><a href="./cast/index.html">Cast</a></li>
       <li><a href="./entrevistas/index.html">Entrevistas</a></li>
       <li><a href="./detras-de-camara/index.html">Detrás de cámara</a></li>
@@ -376,26 +392,18 @@ footer{
 
         <div>
           <div class="kicker">
-            <span class="pill"><span class="dot"></span> Serie · Sueños lúcidos</span>
-            <span class="pill">Narración en primera persona</span>
-            <span class="pill">Cast ficticio (IA)</span>
+            <span class="pill"><span class="dot"></span> Cast ficticio (IA)</span>
           </div>
 
           <h1>SomniaScriptum</h1>
 
           <div class="tagline">
-            Experiencias ficticias de sueños lúcidos contadas como una serie: episodios, perfiles, entrevistas y detrás de cámara.
-          </div>
-
-          <div class="meta">
-            Este sitio es el hub: entrás por los episodios o por el cast.  
-            Ahora los enlaces ya están conectados.
+            Relatos narrados. Varias series, un mismo universo: episodios, perfiles, entrevistas y detrás de cámara.
           </div>
 
           <div class="cta">
-            <a class="btn primary" href="./temporada-1/index.html">Ver Episodios</a>
+            <a class="btn primary" href="./series/index.html">Ver series</a>
             <a class="btn" href="./cast/index.html">Cast & Perfiles</a>
-            <a class="btn" href="./temporada-1/index.html">Mapa del hub</a>
           </div>
         </div>
 
@@ -403,22 +411,15 @@ footer{
           <div class="panel">
             <h2>Acceso rápido</h2>
             <p>
-              Entrá directo al catálogo de episodios o explorá perfiles del cast con enlaces a entrevistas y material complementario.
+              Entrá a cada serie o explorá perfiles del cast, entrevistas y material complementario.
             </p>
             <div class="quick">
-              <a href="./temporada-1/index.html">Temporada 1 · Índice</a>
+              <a href="./el-onironauta/index.html">El onironauta · Episodios</a>
+              <a href="./spirya-xxi/index.html">Spirya XXI</a>
               <a href="./cast/index.html">Cast · Perfiles</a>
               <a href="./entrevistas/index.html">Entrevistas</a>
               <a href="./detras-de-camara/index.html">Detrás de cámara</a>
             </div>
-          </div>
-
-          <div class="panel">
-            <h2>Lectura cómoda</h2>
-            <p>
-              Esto es “azul noche”: profundo, frío y elegante, sin negro puro ni blanco puro.
-              En páginas de lectura podemos aclarar aún más el panel del texto.
-            </p>
           </div>
         </aside>
 
@@ -431,37 +432,65 @@ footer{
   <div class="container">
 
     <div class="section-title">
-      <h3>Episodios destacados</h3>
-      <div class="hint">Después: miniaturas reales y links a cada ficha</div>
+      <h3>Series</h3>
+    </div>
+
+    <div class="grid series">
+      <article class="card">
+        <a href="./el-onironauta/index.html">
+          <div class="thumb">Serie</div>
+          <div class="card-body">
+            <h4>El onironauta</h4>
+            <p>Un hombre explora sus sueños lúcidos y registra lo que encuentra.</p>
+            <span class="go">Entrá →</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="./spirya-xxi/index.html">
+          <div class="thumb">Serie · Próximamente</div>
+          <div class="card-body">
+            <h4>Spirya XXI</h4>
+            <p>Una joven ingresa a una sociedad que ayuda sin dejar rastro.</p>
+            <span class="go">Entrá →</span>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <div class="section-title" style="margin-top:44px;">
+      <h3>Últimos episodios</h3>
+      <a class="hint" href="./el-onironauta/index.html">El onironauta · Ver todos →</a>
     </div>
 
     <div class="grid">
       <article class="card">
-        <a href="./temporada-1/e00-arbol-negro.html">
-          <div class="thumb">E00 · Prólogo</div>
+        <a href="./el-onironauta/e03-gracias.html">
+          <div class="thumb">E03 · Episodio</div>
           <div class="card-body">
-            <h4>El Árbol Negro</h4>
-            <p>El origen de la sustancia onírica. La primera grieta.</p>
+            <h4>Gracias</h4>
+            <p>Un episodio breve, íntimo y con filo emocional.</p>
           </div>
         </a>
       </article>
 
       <article class="card">
-        <a href="./temporada-1/index.html">
-          <div class="thumb">E01 · Episodio</div>
-          <div class="card-body">
-            <h4>Onyria</h4>
-            <p>El primer sueño lúcido exitoso y el comienzo del mundo compartido.</p>
-          </div>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="./temporada-1/index.html">
+        <a href="./el-onironauta/e02-esencia-felicidad.html">
           <div class="thumb">E02 · Episodio</div>
           <div class="card-body">
             <h4>La esencia de la felicidad</h4>
             <p>Una exploración íntima: lo que se encuentra y no se puede “explicar”.</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="./el-onironauta/e01-onyria.html">
+          <div class="thumb">E01 · Episodio</div>
+          <div class="card-body">
+            <h4>Onyria</h4>
+            <p>El primer sueño lúcido exitoso y el comienzo del mundo compartido.</p>
           </div>
         </a>
       </article>

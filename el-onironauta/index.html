@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SomniaScriptum — Entrevistas</title>
+<title>SomniaScriptum — El onironauta</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@ body{
 
 .container{width:min(1140px, 92vw); margin:0 auto;}
 
-/* NAV */
+/* NAV (mismo estilo) */
 nav{
   position:sticky;
   top:0;
@@ -98,7 +98,7 @@ nav a:hover{
   color:var(--text);
 }
 
-/* Header */
+/* Header de página */
 .header{
   padding:56px 0 26px 0;
 }
@@ -125,10 +125,10 @@ nav a:hover{
   font-size:16px;
   line-height:1.6;
   color:var(--muted);
-  max-width:86ch;
+  max-width:80ch;
 }
 
-/* Tools */
+/* Barra de herramientas */
 .tools{
   margin-top:22px;
   display:flex;
@@ -172,8 +172,10 @@ nav a:hover{
   user-select:none;
 }
 
-/* Grid */
-.section{padding:26px 0 74px 0;}
+/* Grid de episodios */
+.section{
+  padding:26px 0 74px 0;
+}
 
 .grid{
   display:grid;
@@ -224,7 +226,9 @@ nav a:hover{
   color:rgba(236,229,214,0.65);
 }
 
-.body{padding:16px 16px 18px 16px;}
+.body{
+  padding:16px 16px 18px 16px;
+}
 
 .title{
   font-family:"EB Garamond", serif;
@@ -283,14 +287,14 @@ footer{
   <div class="container nav-inner">
     <div class="brand">
       <div class="logo">SomniaScriptum</div>
-      <div class="tag">Entrevistas</div>
+      <div class="tag">El onironauta</div>
     </div>
     <ul>
       <li><a href="../index.html">Inicio</a></li>
       <li><a href="../series/">Series</a></li>
-      <li><a href="../cast/">Cast</a></li>
-      <li><a href="./">Entrevistas</a></li>
-      <li><a href="../detras-de-camara/">Detrás de cámara</a></li>
+      <li><a href="../cast/index.html">Cast</a></li>
+      <li><a href="../entrevistas/index.html">Entrevistas</a></li>
+      <li><a href="../detras-de-camara/index.html">Detrás de cámara</a></li>
     </ul>
   </div>
 </nav>
@@ -298,18 +302,18 @@ footer{
 <header class="header">
   <div class="container">
     <div class="breadcrumb">
-      <a href="../index.html">Inicio</a> / Entrevistas
+      <a href="../index.html">Inicio</a> / <a href="../series/">Series</a> / El onironauta
     </div>
-    <div class="h1">Entrevistas</div>
+    <div class="h1">El onironauta</div>
     <div class="sub">
-      Conversaciones dentro y fuera del relato: entrevistas ficticias al cast (IA), al narrador, y a veces al propio “método”.
+      Un hombre explora sus sueños lúcidos y registra lo que encuentra. Relatos en primera persona de Adrian Keller: una serie abierta, con episodios que se suman a medida que se registran.
     </div>
 
     <div class="tools">
       <div class="search">
-        <input type="text" placeholder="Buscar (por personaje, tema, episodio, herramienta)…" />
+        <input type="text" placeholder="Buscar episodio (por título, número, palabra clave)…" />
       </div>
-      <div class="pill">Formato: entrevistas</div>
+      <div class="pill">Orden: cronológico</div>
       <div class="pill">Estado: en progreso</div>
     </div>
   </div>
@@ -319,94 +323,83 @@ footer{
   <div class="container">
     <div class="grid">
 
+      <!-- E00 -->
       <article class="card">
-        <a href="#">
+        <a href="./e00-arbol-negro.html">
           <div class="thumb">
-            <div class="badge">Cast</div>
-            <div class="len">~ 8–14 min</div>
-          </div>
-          <div class="body">
-            <div class="title">Adrian Keller</div>
-            <div class="desc">El narrador de El onironauta: tono, límites, y por qué la voz es parte del guion.</div>
-            <div class="meta">
-              <span>Actor (IA)</span><span>Protagonista</span>
-            </div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="#">
-          <div class="thumb">
-            <div class="badge">Narración</div>
-            <div class="len">~ 7–12 min</div>
-          </div>
-          <div class="body">
-            <div class="title">Primera persona y verdad emocional</div>
-            <div class="desc">Cómo se escribe “como si fuera real” sin convertirlo en confesión: técnica, no terapia.</div>
-            <div class="meta">
-              <span>Guion</span><span>Estilo</span><span>Voz</span>
-            </div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="#">
-          <div class="thumb">
-            <div class="badge">Mundo</div>
+            <div class="badge">E00 · Prólogo</div>
             <div class="len">~ 6–10 min</div>
           </div>
           <div class="body">
-            <div class="title">Qué es Onyria (y qué no es)</div>
-            <div class="desc">Onyria es el pueblo: dónde empieza el mundo compartido y dónde termina el nombre.</div>
+            <div class="title">El Árbol Negro</div>
+            <div class="desc">El origen de la sustancia onírica. La primera grieta.</div>
             <div class="meta">
-              <span>Lore</span><span>Worldbuilding</span>
+              <span>Origen</span><span>Sustancia onírica</span><span>Inicio</span>
             </div>
           </div>
         </a>
       </article>
 
+      <!-- E01 -->
       <article class="card">
-        <a href="#">
+        <a href="./e01-onyria.html">
           <div class="thumb">
-            <div class="badge">Método</div>
-            <div class="len">~ 9–15 min</div>
+            <div class="badge">E01 · Episodio</div>
+            <div class="len">~ 8–12 min</div>
           </div>
           <div class="body">
-            <div class="title">Cómo se produce un episodio</div>
-            <div class="desc">De idea a video: texto, imagen, animación, música y edición, sin humo.</div>
+            <div class="title">Onyria</div>
+            <div class="desc">El primer sueño lúcido exitoso y el inicio del mundo compartido.</div>
             <div class="meta">
-              <span>Workflow</span><span>Producción</span>
+              <span>Primer lúcido</span><span>Pueblo</span><span>Mundo compartido</span>
             </div>
           </div>
         </a>
       </article>
 
+      <!-- E02 -->
       <article class="card">
-        <a href="#">
+        <a href="./e02-esencia-felicidad.html">
           <div class="thumb">
-            <div class="badge">Cast</div>
-            <div class="len">~ 6–11 min</div>
+            <div class="badge">E02 · Episodio</div>
+            <div class="len">~ 8–14 min</div>
           </div>
           <div class="body">
-            <div class="title">Entrevista a un secundario</div>
-            <div class="desc">Próximamente.</div>
+            <div class="title">La esencia de la felicidad</div>
+            <div class="desc">Exploración íntima: lo que se encuentra y no se puede explicar del todo.</div>
             <div class="meta">
-              <span>Por definir</span><span>Por definir</span>
+              <span>Introspección</span><span>Hallazgo</span><span>Ambigüedad</span>
             </div>
           </div>
         </a>
       </article>
 
+      <!-- E03 -->
+      <article class="card">
+        <a href="./e03-gracias.html">
+          <div class="thumb">
+            <div class="badge">E03 · Episodio</div>
+            <div class="len">~ 6–10 min</div>
+          </div>
+          <div class="body">
+            <div class="title">Gracias</div>
+            <div class="desc">Un episodio breve, íntimo y con filo emocional.</div>
+            <div class="meta">
+              <span>Emoción</span><span>Cierre parcial</span><span>Vínculo</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Placeholders para E04–E07 -->
       <article class="card">
         <a href="#">
           <div class="thumb">
-            <div class="badge">Próximamente</div>
+            <div class="badge">E04 · Próximamente</div>
             <div class="len">—</div>
           </div>
           <div class="body">
-            <div class="title">Nueva entrevista</div>
+            <div class="title">Episodio 4</div>
             <div class="desc">Próximamente.</div>
             <div class="meta"><span>Por definir</span><span>Por definir</span></div>
           </div>
@@ -416,11 +409,39 @@ footer{
       <article class="card">
         <a href="#">
           <div class="thumb">
-            <div class="badge">Próximamente</div>
+            <div class="badge">E05 · Próximamente</div>
             <div class="len">—</div>
           </div>
           <div class="body">
-            <div class="title">Nueva entrevista</div>
+            <div class="title">Episodio 5</div>
+            <div class="desc">Próximamente.</div>
+            <div class="meta"><span>Por definir</span><span>Por definir</span></div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="#">
+          <div class="thumb">
+            <div class="badge">E06 · Próximamente</div>
+            <div class="len">—</div>
+          </div>
+          <div class="body">
+            <div class="title">Episodio 6</div>
+            <div class="desc">Próximamente.</div>
+            <div class="meta"><span>Por definir</span><span>Por definir</span></div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="#">
+          <div class="thumb">
+            <div class="badge">E07 · Próximamente</div>
+            <div class="len">—</div>
+          </div>
+          <div class="body">
+            <div class="title">Episodio 7</div>
             <div class="desc">Próximamente.</div>
             <div class="meta"><span>Por definir</span><span>Por definir</span></div>
           </div>
@@ -432,7 +453,7 @@ footer{
 </main>
 
 <footer>
-  © 2026 SomniaScriptum — Entrevistas
+  © 2026 SomniaScriptum — El onironauta
 </footer>
 
 </body>
