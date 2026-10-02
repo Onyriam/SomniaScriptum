@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SomniaScriptum — Spirya XXI</title>
+<title>SomniaScriptum — Arcarium</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -315,71 +315,47 @@ footer{
   color:var(--muted2);
 }
 
-/* Portada de la serie: para poner la imagen, agregar style="--cover-img:url('portada.jpg')" al div .cover */
-.cover{
-  position:relative;
-  min-height:400px;
-  margin-top:6px;
+/* Arcarium */
+.logo-banner{
   border-radius:22px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.12);
   box-shadow:0 26px 70px rgba(0,0,0,0.45);
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:38px;
-  background:
-    linear-gradient(to top, rgba(11,20,34,0.96) 0%, rgba(11,20,34,0.60) 38%, rgba(11,20,34,0.05) 78%),
-    var(--cover-img,
-      radial-gradient(700px 420px at 22% 18%, rgba(134,182,214,0.30), transparent 60%),
-      radial-gradient(700px 420px at 82% 26%, rgba(203,181,124,0.22), transparent 60%),
-      linear-gradient(180deg, #1a2f4d, #0f1d31));
-  background-size:cover;
-  background-position:center;
+  background:#0b1630;
+  margin-bottom:26px;
 }
-.cover-kicker{
-  font-size:12px;
-  letter-spacing:1.6px;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:10px;
+.logo-banner img{
+  display:block;
+  width:100%;
+  aspect-ratio:3/1;
+  object-fit:cover;
+  object-position:center 48%;
 }
-.cover .h1{font-size:68px;line-height:1;margin-bottom:12px;}
-.cover .sub{max-width:62ch;}
-
-/* Reparto */
-.sec-title{
+.prose{
+  max-width:780px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.06);
+  box-shadow:0 18px 40px rgba(0,0,0,0.30);
+  padding:30px 32px;
+  margin-bottom:18px;
+}
+.prose h2{
   font-family:"EB Garamond", serif;
-  font-size:34px;
-  letter-spacing:0.6px;
-  margin:54px 0 18px 0;
+  font-size:30px;
+  font-weight:600;
+  margin-bottom:12px;
 }
-.cast-row{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(190px, 1fr));
-  gap:18px;
+.prose p{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--muted);
+  margin-bottom:14px;
 }
-.actor .photo{
-  height:230px;
-  background-size:cover;
-  background-position:center 25%;
-  background-repeat:no-repeat;
-}
-.actor .name{
-  font-family:"EB Garamond", serif;
-  font-size:22px;
-  margin-bottom:4px;
-}
-.actor .role{
-  font-size:12px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  color:rgba(236,229,214,0.65);
-}
-
-@media (max-width: 950px){
-  .cover{min-height:320px;padding:24px;}
-  .cover .h1{font-size:46px;}
+.prose p:last-child{margin-bottom:0;}
+@media (max-width: 600px){
+  .prose{padding:22px 18px;}
+  .logo-banner img{aspect-ratio:16/9;}
 }
 
 /* Menú en celulares */
@@ -398,14 +374,14 @@ footer{
   <div class="container nav-inner">
     <div class="brand">
       <div class="logo">SomniaScriptum</div>
-      <div class="tag">Spirya XXI</div>
+      <div class="tag">Arcarium</div>
     </div>
     <ul>
       <li><a href="../index.html">Inicio</a></li>
       <li><a href="../series/">Series</a></li>
       <li><a href="../entrevistas/">Entrevistas</a></li>
       <li><a href="../detras-de-camara/">Detrás de cámara</a></li>
-      <li><a href="../arcarium/">Arcarium</a></li>
+      <li><a href="./">Arcarium</a></li>
     </ul>
   </div>
 </nav>
@@ -413,69 +389,56 @@ footer{
 <header class="header">
   <div class="container">
     <div class="breadcrumb">
-      <a href="../index.html">Inicio</a> / <a href="../series/">Series</a> / Spirya XXI
+      <a href="../index.html">Inicio</a> / Arcarium
     </div>
-    <div class="cover">
-      <div class="cover-kicker">Serie · Próximamente</div>
-      <div class="h1">Spirya XXI</div>
-      <div class="sub">
-        Una joven ingresa a una sociedad que ayuda sin dejar rastro.
-      </div>
-    </div>
-
-    <div class="tools">
-      <div class="pill">Formato: novela narrada</div>
-      <div class="pill">Estado: próximamente</div>
+    <div class="logo-banner">
+      <img src="arcarium-logo.png" alt="Arcarium" />
     </div>
   </div>
 </header>
 
 <main class="section">
   <div class="container">
-    <div class="notice">
-      <div class="badge">Próximamente</div>
-      <h2>Los primeros episodios están en camino</h2>
-      <p>
-        Spirya XXI es una novela narrada por episodios. Cuando se publique el primero, lo vas a encontrar acá
-        junto con su ficha. Mientras tanto, explorá el resto de las series.
-      </p>
-    </div>
 
-    <h2 class="sec-title">Reparto</h2>
-    <div class="cast-row">
-      <article class="card actor">
-        <a href="./sofia.html">
-          <div class="photo" style="background-image:url('fotos/sofia-01.jpg');"></div>
-          <div class="body">
-            <div class="name">Annika van der Veen</div>
-            <div class="role">Sofía Harrow</div>
-          </div>
-        </a>
-      </article>
-      <article class="card actor">
-        <a href="./jonathan.html">
-          <div class="photo" style="background-image:url('fotos/jonathan-01.jpg');background-position:center 30%;"></div>
-          <div class="body">
-            <div class="name">Henrik Dahlgren</div>
-            <div class="role">Jonathan Harrow</div>
-          </div>
-        </a>
-      </article>
-      <article class="card actor">
-        <a href="./helen.html">
-          <div class="photo" style="background-image:url('fotos/helen-01.jpg');"></div>
-          <div class="body">
-            <div class="name">Lucía Ferreyra</div>
-            <div class="role">Helen</div>
-          </div>
-        </a>
-      </article>
-    </div>
+    <section class="prose">
+      <h2>Arcarium</h2>
+      <p>
+        Arcarium es una productora audiovisual independiente fundada en Montevideo en el 2025 por Adrian Keller.
+        Nació con un único propósito: llevar a la pantalla los registros de sus exploraciones del sueño lúcido,
+        tal como fueron vividas.
+      </p>
+      <p>
+        Trabajamos exclusivamente con actores aficionados. No buscamos rostros conocidos ni técnicas aprendidas,
+        sino personas capaces de habitar una escena con la naturalidad de quien no está actuando.
+        Nuestros intérpretes provienen de distintos países y llegan a Arcarium a través de la red de colaboradores
+        de la producción, lo que convierte a cada episodio en una coproducción internacional en el sentido más
+        artesanal de la palabra.
+      </p>
+    </section>
+
+    <section class="prose">
+      <h2>Una producción sin fines de lucro</h2>
+      <p>
+        Arcarium no persigue beneficios económicos. Ninguno de sus integrantes percibe remuneración alguna por su
+        trabajo, y cada intérprete costea por su cuenta todo lo que su participación requiere: vestuario, maquillaje,
+        traslados, alojamiento y viáticos. Quienes forman parte de Arcarium lo hacen únicamente por convicción
+        en el proyecto.
+      </p>
+    </section>
+
+    <section class="prose">
+      <h2>Sobre el elenco</h2>
+      <p>
+        Arcarium no realiza convocatorias abiertas ni recibe postulaciones. El elenco se conforma dentro del círculo
+        de la producción y no tenemos previsto ampliarlo por otras vías. Preferimos decirlo con claridad desde el principio.
+      </p>
+    </section>
+
   </div>
 </main>
 
 <footer>
-  © 2026 SomniaScriptum — Spirya XXI
+  © 2026 SomniaScriptum — Arcarium
 </footer>
 
 </body>

@@ -129,6 +129,14 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
   .portrait{height:420px;}
   .h1{font-size:44px;}
 }
+
+/* Menú en celulares */
+@media (max-width: 700px){
+  .nav-inner{flex-wrap:wrap;gap:8px;padding:14px 0;}
+  .brand .tag{display:none;}
+  nav ul, .nav-links{justify-content:flex-start;gap:4px 8px;}
+  nav a{padding:6px 6px;font-size:12px;}
+}
 </style>
 </head>
 
@@ -142,6 +150,7 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
       <li><a href="../series/">Series</a></li>
       <li><a href="../entrevistas/">Entrevistas</a></li>
       <li><a href="../detras-de-camara/">Detrás de cámara</a></li>
+      <li><a href="../arcarium/">Arcarium</a></li>
     </ul>
   </div>
 </nav>
@@ -174,7 +183,7 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
           <div class="fact"><div class="k">Residencia</div><div class="v">Montevideo, Uruguay</div></div>
           <div class="fact"><div class="k">Profesión</div><div class="v">Archivista</div></div>
           <div class="fact"><div class="k">Actividad audiovisual</div><div class="v">Desde el 2025</div></div>
-          <div class="fact"><div class="k">Productora</div><div class="v">Arcarium</div></div>
+          <div class="fact"><div class="k">Productora</div><div class="v"><a href="../arcarium/" style="color:inherit;">Arcarium</a></div></div>
         </div>
       </section>
 
@@ -206,7 +215,7 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
       </p>
 
       <p>
-        Es además fundador de <strong>Arcarium</strong>,
+        Es además fundador de <a href="../arcarium/" style="color:inherit;"><strong>Arcarium</strong></a>,
         productora independiente que trabaja exclusivamente con actores aficionados.
       </p>
     </section>
