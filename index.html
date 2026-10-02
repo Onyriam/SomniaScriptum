@@ -213,6 +213,15 @@ nav a:hover{
   border-color:rgba(203,181,124,0.62);
 }
 
+/* Portada centrada */
+.hero-grid.centered{grid-template-columns:1fr;text-align:center;padding:56px 42px;}
+.hero-grid.centered .tagline{margin-left:auto;margin-right:auto;}
+.hero-grid.centered .cta{justify-content:center;}
+@media (max-width: 600px){
+  .hero-grid.centered{padding:36px 18px;}
+  .hero-grid.centered h1{font-size:40px;letter-spacing:1px;}
+}
+
 /* panel lateral */
 .side{display:flex;flex-direction:column;gap:14px;}
 
@@ -387,7 +396,7 @@ footer{
 <header class="hero">
   <div class="container">
     <div class="hero-wrap">
-      <div class="hero-grid">
+      <div class="hero-grid centered">
 
         <div>
           <h1>SomniaScriptum</h1>
@@ -401,22 +410,6 @@ footer{
             <a class="btn" href="./cast/index.html">Cast & Perfiles</a>
           </div>
         </div>
-
-        <aside class="side">
-          <div class="panel">
-            <h2>Acceso rápido</h2>
-            <p>
-              Entrá a cada serie o explorá perfiles del cast, entrevistas y material complementario.
-            </p>
-            <div class="quick">
-              <a href="./el-onironauta/index.html">El onironauta · Episodios</a>
-              <a href="./spirya-xxi/index.html">Spirya XXI</a>
-              <a href="./cast/index.html">Cast · Perfiles</a>
-              <a href="./entrevistas/index.html">Entrevistas</a>
-              <a href="./detras-de-camara/index.html">Detrás de cámara</a>
-            </div>
-          </div>
-        </aside>
 
       </div>
     </div>
