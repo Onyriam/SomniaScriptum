@@ -136,6 +136,11 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
 .brand .tag{font-size:12px;letter-spacing:1.4px;color:var(--muted2);text-transform:uppercase;margin-left:10px;}
 .brand{display:flex;align-items:baseline;}
 
+/* Biografía del intérprete */
+.bio h3{font-family:"EB Garamond", serif;font-size:30px;font-weight:600;line-height:1.1;}
+.bio .bio-sub{font-size:14px;color:var(--muted);margin:4px 0 18px 0;}
+.bio .bio-sub em{color:var(--muted2);}
+
 /* Menú en celulares */
 @media (max-width: 700px){
   .nav-inner{flex-wrap:wrap;gap:8px;padding:14px 0;}
@@ -180,15 +185,17 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
         <img src="fotos/jonathan-01.jpg"
      alt="Jonathan Harrow"
      style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
-        <div class="badge">Reparto principal</div>
+        <div class="badge">Protagonista</div>
       </div>
 
       <section class="panel">
         <h2>Ficha del personaje</h2>
         <div class="facts">
           <div class="fact"><div class="k">Serie</div><div class="v">Spirya XXI</div></div>
-          <div class="fact"><div class="k">Rol</div><div class="v">Reparto principal</div></div>
+          <div class="fact"><div class="k">Rol</div><div class="v">Protagonista</div></div>
           <div class="fact"><div class="k">Interpretado por</div><div class="v">Henrik Dahlgren</div></div>
+          <div class="fact"><div class="k">Nacimiento</div><div class="v">23 de abril de 1969</div></div>
+          <div class="fact"><div class="k">Edad</div><div class="v" id="edad" data-nacimiento="1969-04-23">57 años</div></div>
         </div>
       </section>
 
@@ -204,7 +211,55 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
       </p>
     </section>
 
-    <!-- ROW 3: Serie -->
+    <!-- ROW 3: Intérprete -->
+    <section class="panel bio" style="margin-top:18px;">
+      <h2>El intérprete</h2>
+      <h3>Henrik Dahlgren</h3>
+      <div class="bio-sub"><em>Jonathan Harrow en</em> Spirya XXI</div>
+
+      <p>
+        Henrik Dahlgren pasó treinta años restaurando muebles y objetos antiguos en un pequeño taller de Gotemburgo.
+        Por sus manos pasaron cómodas del siglo XVIII, relojes de péndulo y cajas de música que no sonaban desde hacía
+        generaciones. Ninguna fue suya. “Arreglé las reliquias de medio país y en mi casa no hay una sola antigüedad.
+        Nunca sentí la necesidad de quedarme con nada”.
+      </p>
+
+      <p>
+        Llegó a la actuación pasados los cincuenta, casi por accidente, y Jonathan Harrow es su primer papel protagónico.
+        El coleccionista que acumula lo que él se pasó la vida devolviendo.
+      </p>
+
+      <p>
+        Ese oficio se le notó desde el primer día de rodaje. La copa vikinga de utilería era una réplica de resina,
+        liviana como un vaso de plástico. Henrik pidió que le pusieran peso adentro. “El texto dice que es más pesada
+        de lo que parece. Yo sé cómo se sostiene un objeto valioso, pero no sé fingir un peso que no tengo en las manos”.
+        El equipo la rellenó con plomo de pesca. Desde entonces, en el set la llamaban “la copa de Henrik”.
+      </p>
+
+      <p>
+        La escena que más veces repitió fue la del tatuaje, cuando Jonathan le toma la muñeca a su hija.
+        “En las primeras tomas parecía enojado, y no era eso. Era miedo”. Lo encontró cuando dejó de pensar en el tatuaje
+        y empezó a pensar en la madre de Sofía. Esa toma es la que quedó.
+      </p>
+
+      <p>
+        Henrik tiene una hija adulta que vive en otro continente. Para preparar el papel volvió a mirar las fotos de
+        cuando ella era chica. “Jonathan sigue viendo a un bebé. Yo también, a veces. No me costó mucho entenderlo”.
+      </p>
+
+      <p>
+        Como todo el elenco de <a href="../arcarium/" style="color:inherit;">Arcarium</a>, es actor aficionado.
+        No cobra por su trabajo y costea su propio vestuario y sus viajes.
+      </p>
+
+      <p>
+        <a href="./sofia.html" style="color:inherit;">Annika van der Veen</a>, que interpreta a Sofía, cuenta que fue
+        el único del equipo que nunca la llamó “la nena”. Él le resta importancia: “Tiene veintiséis años.
+        ¿Cómo la iba a llamar?”.
+      </p>
+    </section>
+
+    <!-- ROW 4: Serie -->
     <section class="panel" style="margin-top:18px;">
       <h2>Episodios</h2>
       <div class="list">
@@ -224,6 +279,18 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
 <footer>
   © 2026 SomniaScriptum — Spirya XXI
 </footer>
+
+<script>
+// Edad calculada a partir de la fecha de nacimiento
+(() => {
+  const el = document.getElementById('edad');
+  const [y, m, d] = el.dataset.nacimiento.split('-').map(Number);
+  const hoy = new Date();
+  let edad = hoy.getFullYear() - y;
+  if (hoy.getMonth() + 1 < m || (hoy.getMonth() + 1 === m && hoy.getDate() < d)) edad--;
+  el.textContent = edad + ' años';
+})();
+</script>
 
 </body>
 </html>
