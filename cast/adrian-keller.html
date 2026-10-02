@@ -170,7 +170,7 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
         <h2>Datos biográficos</h2>
         <div class="facts">
           <div class="fact"><div class="k">Nacimiento</div><div class="v">12 de septiembre de 1980</div></div>
-          <div class="fact"><div class="k">Edad</div><div class="v">45 años</div></div>
+          <div class="fact"><div class="k">Edad</div><div class="v" id="edad" data-nacimiento="1980-09-12">46 años</div></div>
           <div class="fact"><div class="k">Lugar de nacimiento</div><div class="v">Rijeka, Croacia</div></div>
           <div class="fact"><div class="k">Residencia</div><div class="v">Montevideo, Uruguay</div></div>
           <div class="fact"><div class="k">Profesión</div><div class="v">Archivista</div></div>
@@ -240,6 +240,18 @@ footer{border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;text-align:cen
 <footer>
   © 2026 SomniaScriptum — Perfil de cast
 </footer>
+
+<script>
+// Edad calculada a partir de la fecha de nacimiento
+(() => {
+  const el = document.getElementById('edad');
+  const [y, m, d] = el.dataset.nacimiento.split('-').map(Number);
+  const hoy = new Date();
+  let edad = hoy.getFullYear() - y;
+  if (hoy.getMonth() + 1 < m || (hoy.getMonth() + 1 === m && hoy.getDate() < d)) edad--;
+  el.textContent = edad + ' años';
+})();
+</script>
 
 </body>
 </html>
